@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#88E788">
+  <meta name="description" content="KURD S.A. fabrica bolsas de friselina y laminados para alimentos. Packaging a medida para comercios, empresas e industrias.">
+  <title>KURD S.A. | Packaging con identidad</title>
+  <style>
+    :root {
+      --paper: #EAFED9;
+      --white: #fff;
+      --ink: #171916;
+      --muted: #b8bbb5;
+      --line: #393f32;
+      --lime: #b7d92d;
+      --lime-light: #d3e993;
+      --forest: #263d2b;
+      --sans: Arial, Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --wrap: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { margin: 0; background: #142308; color: white; font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    svg { display: block; }
+    .wrap { width: min(var(--wrap), calc(100% - 72px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 12px 18px; transform: translateY(-160%); background: var(--ink); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; font-size: .71rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 23px; height: 2px; background: var(--lime); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.055em; }
+    h1 { font-size: clamp(3.5rem, 6vw, 5.8rem); line-height: .98; }
+    h2 { margin-bottom: 0; font-size: clamp(2.7rem, 5.2vw, 5rem); line-height: 1.02; }
+    .lime-text { color: #769411; }
+    .button { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 20px; padding: 0 23px; border: 0; background: var(--lime); color: var(--ink); font-size: .85rem; font-weight: 700; transition: background .2s ease, transform .2s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--lime-light); }
+    .button-arrow { font-size: 1.25rem; line-height: 1; }
+    .under-link { display: inline-flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid currentColor; font-size: .82rem; font-weight: 700; }
+    .under-link span { font-size: 1.05rem; transition: transform .2s ease; }
+    .under-link:hover span { transform: translate(3px, -3px); }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 42px; }
+    .section-top h2 { max-width: 700px; margin-top: 17px; }
+    .section-intro { max-width: 350px; margin-bottom: 4px; color: var(--muted); font-size: .94rem; }
+
+    .header { position: sticky; z-index: 30; top: 0; border-top: 3px solid var(--forest); background: #88E788; color: var(--ink); }
+    .nav { display: flex; min-height: 66px; align-items: center; justify-content: space-between; gap: 30px; }
+    .logo { display: flex; flex-shrink: 0; align-items: center; }
+    .logo-image { display: block; width: 50px; height: 52px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: clamp(15px, 2vw, 29px); }
+    .nav-links > a, .nav-dropdown summary { position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 12px 0; color: var(--ink); font-size: .84rem; font-weight: 600; white-space: nowrap; }
+    .nav-links > a.budget-link { display: none; }
+    .nav-links > a:not(.button)::after { position: absolute; right: 0; bottom: 5px; left: 0; height: 2px; transform: scaleX(0); transform-origin: left; background: var(--forest); content: ""; transition: transform .2s ease; }
+    .nav-links > a:not(.button):hover::after, .nav-links > a[aria-current="page"]::after { transform: scaleX(1); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown summary { list-style: none; cursor: pointer; }
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+    .nav-dropdown summary::after { width: 7px; height: 7px; margin-top: -4px; transform: rotate(45deg); border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; content: ""; transition: transform .2s ease; }
+    .nav-dropdown[open] summary::after { margin-top: 4px; transform: rotate(225deg); }
+    .nav-dropdown-menu { position: absolute; z-index: 5; top: calc(100% + 5px); left: -18px; display: grid; min-width: 190px; padding: 8px; border: 1px solid rgba(38,61,43,.12); background: var(--paper); box-shadow: 0 14px 35px rgba(23,25,22,.13); }
+    .nav-dropdown-menu a { padding: 10px 12px; color: var(--ink); font-size: .82rem; }
+    .nav-dropdown-menu a:hover { background: rgba(136,231,136,.38); }
+    .nav-actions { display: flex; flex-shrink: 0; align-items: center; gap: 15px; }
+    .nav-actions .button { min-height: 46px; gap: 12px; padding-inline: 18px; border-radius: 999px; background: var(--forest); color: var(--paper); font-size: .8rem; white-space: nowrap; }
+    .nav-actions .button:hover { background: #345638; }
+    .nav-contact { display: grid; width: 40px; height: 40px; flex-shrink: 0; place-items: center; border: 1px solid rgba(23,25,22,.22); border-radius: 50%; color: var(--ink); transition: background .2s ease; }
+    .nav-contact:hover { background: rgba(255,255,255,.35); }
+    .nav-contact svg { width: 19px; height: 19px; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(23,25,22,.4); border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.4rem; cursor: pointer; }
+
+    .hero { position: relative; min-height: 520px; overflow: hidden; background: #00cc00; color: white; }
+    .hero-grid { position: relative; display: flex; min-height: 520px; align-items: center; }
+    .hero-copy { position: relative; z-index: 3; width: min(58%, 700px); padding: 48px 0 54px; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid rgba(23,25,22,.3); border-radius: 999px; color: white; font-size: .78rem; font-weight: 700; }
+    .hero-kicker svg { width: 16px; height: 16px; }
+    .hero-copy h1 { max-width: 510px; margin: 22px 0 16px; font-family: var(--sans); font-size: clamp(2.6rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.02; letter-spacing: -.045em; }
+    .hero-copy h1 .lime-text { color: inherit; }
+    .hero-copy > p:not(.eyebrow) { max-width: 520px; margin-bottom: 22px; color: rgba(255,255,255,.92); font-size: 1rem; line-height: 1.45; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .hero-actions .button { min-height: 50px; border-radius: 999px; background: var(--forest); color: white; }
+    .hero-actions .button:hover { background: #172b1b; }
+    .hero-actions .under-link { border-color: rgba(255,255,255,.65); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 25px; }
+    .hero-tags span { display: inline-flex; align-items: center; gap: 9px; color: rgba(255,255,255,.95); font-size: .78rem; font-weight: 700; }
+    .hero-tags span + span { padding-left: 20px; border-left: 1px solid rgba(23,25,22,.4); }
+    .hero-tags span::before { width: 7px; height: 7px; border: 1px solid white; border-radius: 50%; content: ""; }
+    .hero-art { position: absolute; z-index: 1; inset: 0 0 0 30%; overflow: hidden; background: #d7dad4; }
+    .hero-art::before { position: absolute; z-index: 1; inset: 0 auto 0 0; width: 42%; background: linear-gradient(90deg, #00cc00 0%, rgba(0,204,0,.96) 24%, rgba(0,204,0,.72) 58%, rgba(0,204,0,0) 100%); content: ""; }
+    .hero-art::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(18,25,17,.3), rgba(18,25,17,.34)); content: ""; }
+    .hero-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-sticker { position: absolute; z-index: 2; top: 28px; right: max(28px, calc((100vw - var(--wrap)) / 2)); display: grid; width: 76px; height: 88px; place-items: center; border: 2px solid rgba(255,255,255,.7); border-radius: 18px; background: var(--forest); color: white; text-align: center; box-shadow: 0 6px 20px rgba(23,25,22,.2); }
+    .hero-sticker span { max-width: 58px; font-size: .64rem; font-weight: 700; line-height: 1.35; }
+    .hero-sticker strong { display: block; font-size: 1.7rem; line-height: 1; }
+    .art-label { position: absolute; z-index: 2; right: 30px; bottom: 20px; color: white; font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+    .ticker { overflow: hidden; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); background: #142308; }
+    .ticker-line { display: flex; min-height: 54px; align-items: center; justify-content: space-between; gap: 18px; }
+    .ticker-line span { color: #f1f5e9; font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .ticker-line b { color: #93aa78; font-size: 1.05rem; font-weight: 400; }
+
+    .lines { padding: 75px 0 110px; background: #142308; color: white; }
+    .lines .section-intro { color: #c1cbb8; }
+    .line-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .line-card { display: grid; min-height: 390px; grid-template-columns: 1fr .85fr; overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #1b2d0c; color: white; }
+    .line-card:nth-child(2) { background: #1b2d0c; }
+    .line-art { position: relative; display: grid; min-height: 350px; place-items: center; overflow: hidden; }
+    .line-art::before { position: absolute; width: 255px; height: 255px; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.025); content: ""; }
+    .line-art svg { position: relative; z-index: 1; width: 86%; max-height: 330px; filter: drop-shadow(0 18px 13px rgba(23,25,22,.18)); transition: transform .3s ease; }
+    .line-card:hover .line-art svg { transform: translateY(-5px) rotate(-2deg); }
+    .line-info { display: flex; flex-direction: column; justify-content: center; padding: 28px 25px 28px 0; }
+    .line-number { margin-bottom: 22px; color: #b7d92d; font-size: .68rem; font-weight: 700; letter-spacing: .1em; }
+    .line-info h3 { margin-bottom: 12px; font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.45rem); font-weight: 400; line-height: 1.03; letter-spacing: -.04em; }
+    .line-info p { margin-bottom: 20px; color: #c1cbb8; font-size: .84rem; }
+    .line-info .under-link { align-self: flex-start; font-size: .75rem; }
+
+    .about { padding: 0 0 105px; }
+    .about-panel { display: grid; grid-template-columns: .9fr 1.1fr; background: #1b2d0c; color: white; }
+    .about-art { position: relative; display: grid; min-height: 470px; place-items: center; overflow: hidden; background: #dae0d3; }
+    .about-art::before { position: absolute; width: 330px; height: 330px; border: 1px solid rgba(23,25,22,.2); border-radius: 50%; box-shadow: 0 0 0 45px rgba(23,25,22,.03), 0 0 0 90px rgba(23,25,22,.025); content: ""; }
+    .about-art svg { position: relative; z-index: 1; width: min(76%, 340px); filter: drop-shadow(0 18px 15px rgba(23,25,22,.22)); }
+    .about-caption { position: absolute; right: 20px; bottom: 18px; left: 20px; color: #4a5147; font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .about-copy { align-self: center; padding: clamp(38px, 6vw, 78px); }
+    .about-copy .eyebrow { color: var(--lime); }
+    .about-copy h2 { margin: 20px 0; font-size: clamp(2.65rem, 5vw, 4.7rem); }
+    .about-copy > p:not(.eyebrow) { max-width: 500px; color: #b8bbb5; font-size: .92rem; }
+    .about-copy .under-link { margin-top: 13px; color: var(--lime); }
+
+    .work { padding: 10px 0 110px; background: #142308; color: white; }
+    .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .work-card { min-width: 0; }
+    .work-art { position: relative; display: grid; height: clamp(230px, 27vw, 350px); place-items: center; overflow: hidden; background: #e4e6df; }
+    .work-card:nth-child(2) .work-art { background: #e1e9e9; }
+    .work-card:nth-child(3) .work-art { background: #ebe6db; }
+    .work-card:nth-child(4) .work-art { background: #e4e8db; }
+    .work-art svg { width: 82%; height: 82%; filter: drop-shadow(0 15px 11px rgba(23,25,22,.16)); transition: transform .3s ease; }
+    .work-card:hover .work-art svg { transform: scale(1.04) rotate(-1deg); }
+    .work-chip { position: absolute; right: 11px; bottom: 11px; padding: 8px 11px; background: var(--paper); color: var(--ink); font-size: .66rem; font-weight: 700; }
+    .work-card h3 { margin: 17px 0 5px; font-size: .98rem; font-weight: 700; }
+    .work-card p { margin: 0; color: var(--muted); font-size: .78rem; }
+
+    .process { padding: 94px 0 100px; background: #1b2d0c; color: white; }
+    .process-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 52px; }
+    .process-head h2 { max-width: 670px; margin-top: 16px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .step { padding: 24px 24px 0 0; border-top: 1px solid #48543d; }
+    .step-index { display: inline-grid; width: 35px; height: 35px; margin-bottom: 30px; place-items: center; border: 1px solid #66744f; border-radius: 50%; color: var(--lime); font-family: var(--serif); font-size: .85rem; }
+    .step h3 { margin-bottom: 10px; font-family: var(--serif); font-size: 1.45rem; font-weight: 400; letter-spacing: -.02em; }
+    .step p { max-width: 330px; margin-bottom: 0; color: var(--muted); font-size: .84rem; }
+
+    .consult { padding: 105px 0; }
+    .consult-panel { display: flex; min-height: 300px; align-items: center; justify-content: space-between; gap: 45px; padding: clamp(35px, 6vw, 76px); background: var(--lime); }
+    .consult-copy { max-width: 730px; }
+    .consult-copy .eyebrow::before { background: var(--ink); }
+    .consult-copy h2 { margin: 18px 0 14px; font-size: clamp(2.7rem, 5.5vw, 5rem); }
+    .consult-copy p { max-width: 580px; margin: 0; color: #454b35; font-size: .92rem; }
+    .consult .button { flex-shrink: 0; background: var(--ink); color: white; }
+    .consult .button:hover { background: #3a4337; }
+
+    .budget { padding: 0 0 105px; scroll-margin-top: 95px; }
+    .budget-layout { display: grid; grid-template-columns: minmax(240px, .34fr) minmax(0, 1fr); align-items: start; gap: clamp(28px, 4vw, 60px); }
+    .budget-sidebar { padding: 27px 0; }
+    .budget-sidebar > .eyebrow { margin-bottom: 30px; }
+    .budget-steps { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .budget-step { position: relative; display: grid; min-height: 82px; grid-template-columns: 44px 1fr; gap: 14px; color: #8d9683; }
+    .budget-step:not(:last-child)::after { position: absolute; top: 44px; bottom: 3px; left: 21px; width: 1px; background: #39432f; content: ""; }
+    .budget-step-number { z-index: 1; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #39432f; border-radius: 50%; background: #1b2d0c; color: #a5b194; font-size: .76rem; }
+    .budget-step-copy { padding-top: 5px; }
+    .budget-step-copy strong, .budget-step-copy span { display: block; }
+    .budget-step-copy strong { margin-bottom: 3px; font-size: .9rem; font-weight: 500; }
+    .budget-step-copy span { color: #89927d; font-size: .76rem; }
+    .budget-step[aria-current="step"] { color: white; }
+    .budget-step[aria-current="step"] .budget-step-number { border-color: #66744f; color: var(--lime); font-weight: 700; }
+    .budget-step[aria-current="step"] .budget-step-copy strong { font-weight: 700; }
+    .budget-help { padding: 24px; margin-top: 26px; background: #202b14; }
+    .budget-help-icon { margin-bottom: 15px; color: #b7c2a8; font-size: 1.55rem; }
+    .budget-help h3 { margin-bottom: 9px; font-size: 1rem; font-weight: 600; }
+    .budget-help p { margin: 0; color: #aab29e; font-size: .82rem; line-height: 1.7; }
+    .budget-panel { min-width: 0; padding: clamp(26px, 4vw, 46px); border: 1px solid #333631; border-radius: 8px; background: #111210; }
+    .budget-heading { margin-bottom: 34px; }
+    .budget-heading .eyebrow { color: #9baa7f; font-size: .66rem; }
+    .budget-heading h3 { margin: 14px 0 8px; font-size: clamp(1.7rem, 3vw, 2.45rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.12; }
+    .budget-heading p:not(.eyebrow) { margin: 0; color: #aab09f; font-size: .88rem; }
+    .budget-step-content[hidden] { display: none; }
+    .budget-options { display: grid; gap: 13px; padding: 0; margin: 0; border: 0; }
+    .budget-options legend { margin-bottom: 13px; color: #e8ebdf; font-size: .88rem; font-weight: 700; }
+    .budget-choice { position: relative; display: flex; min-height: 88px; align-items: center; gap: 17px; padding: 17px 20px; border: 1px solid #343632; border-radius: 6px; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
+    .budget-choice:hover { border-color: #66744f; }
+    .budget-choice:has(input:checked) { border-color: #53633c; background: #20251a; }
+    .budget-choice input { width: 20px; height: 20px; flex: 0 0 20px; accent-color: var(--lime); }
+    .budget-choice-copy { flex: 1; }
+    .budget-choice-copy strong, .budget-choice-copy span { display: block; }
+    .budget-choice-copy strong { margin-bottom: 5px; color: #f3f4ef; font-size: .96rem; font-weight: 500; }
+    .budget-choice-copy span { color: #929b86; font-size: .78rem; }
+    .budget-content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+    .budget-field { display: grid; align-content: start; gap: 8px; min-width: 0; }
+    .budget-field.full { grid-column: 1 / -1; }
+    .budget-field label, .budget-field legend { color: #e8ebdf; font-size: .82rem; font-weight: 600; }
+    .budget-field input, .budget-field select, .budget-field textarea { width: 100%; min-height: 47px; padding: 11px 13px; border: 1px solid #454940; border-radius: 4px; background: #161714; color: white; font: inherit; font-size: .86rem; }
+    .budget-field textarea { min-height: 105px; resize: vertical; }
+    .budget-field input::placeholder, .budget-field textarea::placeholder { color: #858b7c; }
+    .budget-field input:focus, .budget-field select:focus, .budget-field textarea:focus { outline: 2px solid var(--lime); outline-offset: 2px; }
+    .budget-field select option { background: #161714; color: white; }
+    .budget-checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 0; margin: 0; border: 0; }
+    .budget-checks legend { grid-column: 1 / -1; margin-bottom: 3px; }
+    .budget-check { display: flex; min-height: 46px; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #343632; border-radius: 4px; color: #c1c6b8; font-size: .8rem; cursor: pointer; }
+    .budget-check:has(input:checked) { border-color: #53633c; background: #20251a; color: white; }
+    .budget-check input { width: 17px; height: 17px; flex: 0 0 17px; accent-color: var(--lime); }
+    .budget-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 78px; padding-top: 18px; margin-top: 28px; border-top: 1px solid #343632; }
+    .budget-actions-left { color: #929b86; font-size: .74rem; }
+    .budget-actions-right { display: flex; flex-wrap: wrap; gap: 10px; }
+    .budget-actions .button { min-height: 48px; border-radius: 5px; background: #20241e; color: white; }
+    .budget-actions .button.primary { background: var(--lime); color: var(--ink); }
+    .budget-actions .button:disabled { opacity: .55; cursor: not-allowed; }
+    .budget-status { min-height: 1.4em; margin: 12px 0 0; color: #d3e993; font-size: .82rem; }
+    .budget-review { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; margin: 0; }
+    .budget-review > div { padding: 13px 0; border-bottom: 1px solid #343632; }
+    .budget-review > div.full { grid-column: 1 / -1; }
+    .budget-review dt { margin-bottom: 5px; color: #909984; font-size: .72rem; }
+    .budget-review dd { margin: 0; color: #f1f3eb; font-size: .87rem; overflow-wrap: anywhere; white-space: pre-wrap; }
+    .budget-email-note { margin: 19px 0 0; color: #aab09f; font-size: .78rem; }
+    .budget-privacy { display: inline-block; margin-top: 12px; color: #b7d92d; font-size: .76rem; }
+    .budget-privacy:hover { color: #d3e993; }
+
+    .faq { padding: 0 0 105px; }
+    .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 85px; }
+    .faq-intro h2 { margin-top: 18px; font-size: clamp(2.7rem, 5vw, 4.5rem); }
+    .faq-intro > p:not(.eyebrow) { max-width: 330px; margin-top: 18px; color: var(--muted); font-size: .9rem; }
+    .faq-list details { border-bottom: 1px solid var(--line); }
+    .faq-list details:first-child { border-top: 1px solid var(--line); }
+    .faq-list summary { position: relative; padding: 20px 45px 20px 0; font-size: .92rem; font-weight: 700; list-style: none; cursor: pointer; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { position: absolute; top: 16px; right: 4px; color: var(--lime); content: "+"; font-size: 1.45rem; font-weight: 400; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { max-width: 650px; padding: 0 35px 20px 0; margin-bottom: 0; color: var(--muted); font-size: .84rem; }
+
+    .footer { padding: 50px 0 23px; background: #171916; color: white; }
+    .footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 45px; }
+    .footer .logo { width: fit-content; }
+    .footer .logo-image { width: 70px; height: 75px; }
+    .footer-about p { max-width: 350px; margin: 18px 0 0; color: #a7aaa3; font-size: .82rem; }
+    .footer-col h3 { margin-bottom: 15px; color: #a7aaa3; font-size: .67rem; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-col a, .footer-col p { display: block; width: fit-content; margin: 8px 0; color: #f1f1ec; font-size: .82rem; }
+    .footer-col a:hover { color: var(--lime); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 17px; border-top: 1px solid #393b36; color: #92958e; font-size: .7rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (min-width: 881px) and (max-width: 1200px) {
+      .nav { gap: 15px; }
+      .logo-image { width: 66px; height: 70px; }
+      .nav-links { gap: clamp(10px, 1.3vw, 16px); }
+      .nav-links > a, .nav-dropdown summary { gap: 6px; font-size: .76rem; }
+      .nav-actions { gap: 9px; }
+      .nav-actions .button { min-height: 42px; gap: 8px; padding-inline: 13px; font-size: .72rem; }
+      .nav-contact { width: 36px; height: 36px; }
+    }
+    @media (max-width: 880px) {
+      .nav { position: relative; min-height: 84px; gap: 14px; }
+      .menu-toggle { display: block; flex-shrink: 0; }
+      .nav-links { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 18px 18px; border-bottom: 1px solid rgba(23,25,22,.2); background: #88E788; }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links > a, .nav-dropdown summary { min-height: 48px; padding: 14px 5px; border-bottom: 1px solid rgba(23,25,22,.2); }
+      .nav-links > a.budget-link { display: flex; justify-content: center; margin-top: 12px; border: 0; border-radius: 999px; background: var(--forest); color: var(--paper); }
+      .nav-links > a.budget-link::after { display: none; }
+      .nav-links > a.budget-link:hover { background: #345638; }
+      .nav-dropdown-menu { position: static; min-width: 0; padding: 2px 8px 8px 16px; border: 0; border-bottom: 1px solid rgba(23,25,22,.2); background: transparent; box-shadow: none; }
+      .nav-dropdown-menu a { display: block; padding: 10px 8px; }
+      .nav-actions { position: absolute; top: 50%; right: 56px; transform: translateY(-50%); }
+      .nav-actions .button { min-height: 40px; padding-inline: 14px; font-size: .75rem; }
+      .nav-contact { display: none; }
+      .nav-links.open + .nav-actions { display: none; }
+    }
+    @media (max-width: 950px) {
+      .hero { min-height: 540px; }
+      .hero-grid { min-height: 540px; }
+      .hero-copy { width: min(66%, 640px); }
+      .hero-copy h1 { font-size: clamp(2.65rem, 5.4vw, 4.2rem); }
+      .hero-art { left: 32%; }
+      .line-card { grid-template-columns: 1fr; }
+      .line-art { min-height: 260px; }
+      .line-info { padding: 0 25px 28px; }
+      .line-number { margin-bottom: 12px; }
+      .about-panel { grid-template-columns: .85fr 1.15fr; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+      .work-art { height: 330px; }
+      .faq-layout { gap: 45px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 36px); }
+      html { scroll-padding-top: 75px; }
+      .nav { min-height: 72px; gap: 12px; }
+      .logo-image { width: 58px; height: 62px; }
+      .menu-toggle { margin-left: auto; }
+      .nav-actions { right: 56px; }
+      .nav-actions .button { min-height: 38px; gap: 7px; padding-inline: 11px; font-size: .69rem; }
+      .nav-actions .button-arrow { font-size: 1rem; }
+      .hero { min-height: 700px; }
+      .hero-grid { min-height: 700px; align-items: flex-start; }
+      .hero-copy { width: 100%; padding: 42px 0 330px; }
+      .hero-kicker { padding: 7px 11px; font-size: .72rem; }
+      .hero-copy h1 { max-width: 560px; margin: 19px 0 15px; font-size: clamp(2.7rem, 11vw, 4.1rem); }
+      .hero-copy > p:not(.eyebrow) { max-width: 470px; font-size: .95rem; }
+      .hero-tags { gap: 11px; margin-top: 25px; }
+      .hero-tags span { font-size: .69rem; }
+      .hero-tags span + span { padding-left: 11px; }
+      .hero-art { inset: auto 0 0 0; height: 310px; }
+      .hero-art::before { inset: 0 0 auto; width: 100%; height: 32%; background: linear-gradient(180deg, #00cc00, rgba(0,204,0,0)); }
+      .hero-sticker { top: auto; right: 18px; bottom: 18px; width: 62px; height: 70px; border-radius: 14px; }
+      .hero-sticker span { font-size: .55rem; }
+      .hero-sticker strong { font-size: 1.4rem; }
+      .art-label { right: 18px; bottom: 20px; left: 18px; max-width: 180px; font-size: .57rem; }
+      .ticker-line { min-height: 65px; flex-wrap: wrap; justify-content: center; gap: 5px 12px; padding: 12px 0; }
+      .ticker-line span { font-size: .64rem; }
+      .lines { padding: 75px 0; }
+      .section-top, .process-head { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+      .section-top h2, .process-head h2 { font-size: clamp(2.8rem, 12vw, 4rem); }
+      .section-intro { font-size: .86rem; }
+      .line-grid { grid-template-columns: 1fr; gap: 15px; }
+      .line-card { grid-template-columns: 1.02fr .98fr; min-height: 290px; }
+      .line-art { min-height: 290px; }
+      .line-art::before { width: 190px; height: 190px; }
+      .line-info { padding: 22px 18px 22px 0; }
+      .line-info h3 { font-size: 1.75rem; }
+      .line-info p { font-size: .77rem; }
+      .line-info .under-link { font-size: .68rem; }
+      .about { padding-bottom: 78px; }
+      .about-panel { grid-template-columns: 1fr; }
+      .about-art { min-height: 320px; }
+      .about-copy { padding: 36px 25px 42px; }
+      .about-copy h2 { font-size: 3.2rem; }
+      .about-copy > p:not(.eyebrow) { font-size: .86rem; }
+      .work { padding-bottom: 78px; }
+      .work-grid { gap: 24px 12px; }
+      .work-art { height: 235px; }
+      .work-card h3 { margin-top: 12px; font-size: .88rem; }
+      .work-card p { font-size: .73rem; }
+      .work-chip { right: 7px; bottom: 7px; padding: 7px 8px; font-size: .59rem; }
+      .process { padding: 70px 0; }
+      .steps { grid-template-columns: 1fr; gap: 20px; }
+      .step { display: grid; grid-template-columns: 44px 1fr; column-gap: 12px; padding: 18px 0 0; }
+      .step-index { grid-row: span 2; margin: 0; }
+      .step h3 { align-self: center; margin-bottom: 5px; }
+      .step p { grid-column: 2; }
+      .consult { padding: 70px 0; }
+      .consult-panel { align-items: flex-start; flex-direction: column; gap: 24px; padding: 33px 25px; }
+      .consult-copy h2 { font-size: 3.25rem; }
+      .consult-copy p { font-size: .84rem; }
+      .faq { padding-bottom: 75px; }
+      .faq-layout { grid-template-columns: 1fr; gap: 25px; }
+      .faq-intro h2 { font-size: 3.3rem; }
+      .budget { padding-bottom: 75px; }
+      .budget-layout { grid-template-columns: 1fr; gap: 20px; }
+      .budget-sidebar { padding: 0; }
+      .budget-sidebar > .eyebrow, .budget-help { display: none; }
+      .budget-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+      .budget-step { display: flex; min-height: 0; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+      .budget-step:not(:last-child)::after { top: 20px; right: -50%; bottom: auto; left: auto; width: 100%; height: 1px; }
+      .budget-step-number { width: 38px; height: 38px; flex-shrink: 0; background: #142308; }
+      .budget-step-copy { padding-top: 0; }
+      .budget-step-copy strong { font-size: .68rem; }
+      .budget-step-copy span { display: none; }
+      .budget-panel { padding: 27px 21px; }
+      .budget-heading { margin-bottom: 25px; }
+      .budget-heading h3 { font-size: 1.8rem; }
+      .budget-choice { min-height: 76px; padding: 14px; }
+      .budget-content-grid { grid-template-columns: 1fr; gap: 16px; }
+      .budget-field.full { grid-column: auto; }
+      .budget-checks { grid-template-columns: 1fr 1fr; }
+      .budget-actions { align-items: flex-start; flex-direction: column; gap: 13px; }
+      .budget-actions-right { width: 100%; }
+      .budget-actions-right .button { flex: 1 1 calc(50% - 10px); padding-inline: 12px; font-size: .75rem; }
+      .budget-review { grid-template-columns: 1fr; }
+      .budget-review > div.full { grid-column: auto; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+      .footer-about { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 7px; }
+    }
+    @media (max-width: 390px) {
+      .line-card { grid-template-columns: 1fr; }
+      .line-art { min-height: 240px; }
+      .line-info { padding: 0 20px 22px; }
+      .work-art { height: 205px; }
+      .hero-actions { gap: 12px; }
+      .hero-actions .under-link { font-size: .74rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="header">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a class="logo" href="index.html#inicio" aria-label="KURD S.A., inicio">
+        <img class="logo-image" src="kurd-logo.png" alt="Kurd S.A. Transformadores por extrusión">
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a class="budget-link" href="#presupuesto">Pedí tu presupuesto</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button" href="#presupuesto">Cotizá tu pedido <span class="button-arrow" aria-hidden="true">⌄</span></a>
+        <a class="nav-contact" href="#contacto" aria-label="Ir a contacto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-kicker">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+              Packaging que impulsa tu marca
+            </span>
+            <h1>Bolsas personalizadas para comercios e industria</h1>
+            <p>Fabricamos soluciones en packaging para marcas que buscan identidad, calidad y una presentación a medida.</p>
+            <div class="hero-actions">
+              <a class="button" href="#presupuesto">Cotizá tu pedido <span class="button-arrow">↗</span></a>
+              <a class="under-link" href="#lineas">Conocé nuestras líneas <span>↓</span></a>
+            </div>
+            <div class="hero-tags" aria-label="Especialidades">
+              <span>Friselina</span><span>Bolsas TNT</span><span>Laminados</span>
+            </div>
+          </div>
+          <div class="hero-art">
+            <span class="hero-sticker"><span><strong>K</strong>Packaging<br>con identidad</span></span>
+            <svg viewBox="0 0 1200 650" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="hero-art-title">
+              <title id="hero-art-title">Colección ilustrada de bolsas personalizadas de friselina y envases laminados</title>
+              <defs>
+                <linearGradient id="heroBackground" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#dce0db"/><stop offset="1" stop-color="#aeb6af"/></linearGradient>
+                <linearGradient id="bagGreen" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#71866e"/><stop offset="1" stop-color="#304c3b"/></linearGradient>
+                <linearGradient id="bagCream" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fffef7"/><stop offset="1" stop-color="#d9ddd4"/></linearGradient>
+                <linearGradient id="bagBlue" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#526d80"/><stop offset="1" stop-color="#283d50"/></linearGradient>
+                <filter id="heroShadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="17" stdDeviation="12" flood-color="#182019" flood-opacity=".25"/></filter>
+              </defs>
+              <path d="M0 0h1200v650H0z" fill="url(#heroBackground)"/>
+              <path d="M120 0h370l-130 650H0V0z" fill="#f3f5ef" opacity=".26"/>
+              <ellipse cx="700" cy="588" rx="540" ry="50" fill="#29332b" opacity=".18"/>
+              <g filter="url(#heroShadow)" transform="rotate(-5 210 365)">
+                <path d="M72 248h215l-18 280H91z" fill="#e9e9df"/>
+                <path d="M72 248h215l-5 41H76z" fill="#c6c8bf"/>
+                <path d="M128 249v-38c0-32 19-51 52-51s52 19 52 51v38h-15v-37c0-23-13-36-37-36s-37 13-37 36v37z" fill="none" stroke="#989d93" stroke-width="11"/>
+                <rect x="108" y="341" width="144" height="78" fill="#47624b"/>
+                <path d="M130 365h100M130 380h76" stroke="#e7eddb" stroke-width="4"/>
+                <text x="180" y="404" fill="#e7eddb" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" letter-spacing="2">KURD</text>
+              </g>
+              <g filter="url(#heroShadow)" transform="rotate(3 447 355)">
+                <path d="M305 194h270l-24 375H330z" fill="url(#bagGreen)"/>
+                <path d="M305 194h270l-6 54H310z" fill="#304c3b"/>
+                <path d="M375 196v-58c0-48 27-76 75-76s75 28 75 76v58h-18v-57c0-36-20-56-57-56s-57 20-57 56v57z" fill="none" stroke="#263b2d" stroke-width="15"/>
+                <circle cx="440" cy="366" r="52" fill="#eafed9"/>
+                <path d="M418 380c16-32 37-48 67-52-3 31-20 50-52 57" fill="none" stroke="#526d48" stroke-width="7" stroke-linecap="round"/>
+                <path d="M426 392c-3-18-11-31-26-43" fill="none" stroke="#526d48" stroke-width="6" stroke-linecap="round"/>
+                <text x="440" y="475" fill="#f4f4eb" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" letter-spacing="4">TU MARCA</text>
+              </g>
+              <g filter="url(#heroShadow)" transform="rotate(-2 725 351)">
+                <path d="M604 150h233l22 419H579z" fill="url(#bagCream)"/>
+                <path d="M604 150h233l5 57H601z" fill="#bdc3bb"/>
+                <path d="M617 222h205" stroke="#aeb5ab" stroke-width="4"/>
+                <path d="M638 281h163v144H638z" fill="#00cc00"/>
+                <path d="M663 316h113M663 332h83" stroke="#243327" stroke-width="4"/>
+                <text x="720" y="375" fill="#243327" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" letter-spacing="3">ALIMENTOS</text>
+                <path d="M676 398h90" stroke="#243327" stroke-width="3"/>
+              </g>
+              <g filter="url(#heroShadow)" transform="rotate(4 985 348)">
+                <path d="M870 215h213l-20 354H893z" fill="url(#bagBlue)"/>
+                <path d="M870 215h213l-4 50H873z" fill="#263d4c"/>
+                <path d="M928 216v-39c0-33 19-52 53-52s53 19 53 52v39h-16v-38c0-23-13-36-37-36s-37 13-37 36v38z" fill="none" stroke="#243946" stroke-width="12"/>
+                <rect x="905" y="331" width="145" height="89" fill="#eafed9"/>
+                <path d="M931 356h93M931 372h74" stroke="#344b3b" stroke-width="4"/>
+                <text x="978" y="401" fill="#344b3b" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" letter-spacing="3">KURD S.A.</text>
+              </g>
+              <g filter="url(#heroShadow)" transform="rotate(-5 1128 487)">
+                <path d="M1056 387h111l-7 177h-96z" fill="#d3d8ce"/>
+                <path d="M1062 400h99" stroke="#a8b0a5" stroke-width="4"/>
+                <rect x="1071" y="437" width="82" height="68" fill="#fffef7"/>
+                <path d="M1085 454h54M1085 467h40" stroke="#546450" stroke-width="3"/>
+              </g>
+            </svg>
+            <span class="art-label">Bolsas y envases pensados para tu marca</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Especialidades de KURD">
+      <div class="wrap ticker-line"><span>Friselina</span><b>✳</b><span>Bolsas TNT</span><b>✳</b><span>Laminados alimenticios</span><b>✳</b><span>Packaging a medida</span></div>
+    </div>
+
+    <section class="lines" id="lineas">
+      <div class="wrap">
+        <div class="section-top">
+          <div><p class="eyebrow">01 / Nuestras líneas</p><h2>Una solución para<br>cada proyecto.</h2></div>
+          <p class="section-intro">Dos líneas de packaging, distintas aplicaciones y un mismo punto de partida: entender lo que tu producto necesita.</p>
+        </div>
+        <div class="line-grid">
+          <article class="line-card" id="friselina">
+            <div class="line-art">
+              <svg viewBox="0 0 360 350" role="img" aria-label="Ilustración de bolsas de friselina">
+                <path d="M95 117h184l-17 197H111z" fill="#aab99b"/>
+                <path d="M95 117h184l-5 34H98z" fill="#859676"/>
+                <path d="M139 119V91c0-31 17-49 48-49s48 18 48 49v28h-15V92c0-22-12-34-33-34s-33 12-33 34v27z" fill="none" stroke="#65745b" stroke-width="10"/>
+                <path d="M148 207c18-28 43-43 76-46-3 34-24 54-59 61" fill="none" stroke="#edf0e7" stroke-width="7" stroke-linecap="round"/>
+                <path d="M169 228c-2-19-11-34-26-46" fill="none" stroke="#edf0e7" stroke-width="6" stroke-linecap="round"/>
+                <text x="188" y="272" fill="#f7f7ef" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" letter-spacing="2">TU DISEÑO</text>
+                <path d="M70 168h41l13 148H82z" fill="#d4d8cf"/>
+                <path d="M77 168h28v-18c0-18 10-29 25-29s25 11 25 29v18h-11v-17c0-12-5-18-14-18s-14 6-14 18v17" fill="none" stroke="#8e998a" stroke-width="7"/>
+              </svg>
+            </div>
+            <div class="line-info">
+              <span class="line-number">LÍNEA 01</span>
+              <h3>Bolsas de<br>friselina</h3>
+              <p>Fabricación de TNT y bolsas reutilizables para comercios, empresas y eventos.</p>
+              <a class="under-link" href="#trabajos">Ver aplicaciones <span>↗</span></a>
+            </div>
+          </article>
+          <article class="line-card" id="laminados">
+            <div class="line-art">
+              <svg viewBox="0 0 360 350" role="img" aria-label="Ilustración de envases laminados para alimentos">
+                <path d="M107 85h146l23 226H84z" fill="#f4f3ed"/>
+                <path d="M107 85h146l8 32H103z" fill="#c6cbc2"/>
+                <path d="M112 125h138" stroke="#c1c6bd" stroke-width="3"/>
+                <path d="M117 157h128v105H117z" fill="#b7d92d"/>
+                <path d="M141 185c13-23 32-32 58-34-2 28-18 44-46 48" fill="none" stroke="#496147" stroke-width="5" stroke-linecap="round"/>
+                <path d="M157 202c-2-14-8-24-19-33" fill="none" stroke="#496147" stroke-width="4" stroke-linecap="round"/>
+                <text x="181" y="238" fill="#283126" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" letter-spacing="2">TU PRODUCTO</text>
+                <path d="M130 278h101" stroke="#d4d7cf" stroke-width="3"/>
+                <g transform="rotate(8 275 222)">
+                  <path d="M259 151h57l8 157h-72z" fill="#d2d7cd"/>
+                  <path d="M259 151h57v22h-57z" fill="#9fa99a"/>
+                  <path d="M265 197h45v60h-45z" fill="#6c8171"/>
+                  <path d="M273 210h29M273 218h20" stroke="#eff0e9" stroke-width="2"/>
+                </g>
+              </svg>
+            </div>
+            <div class="line-info">
+              <span class="line-number">LÍNEA 02</span>
+              <h3>Laminados<br>para alimentos</h3>
+              <p>Envases para helados, galletitas, fideos y otros productos alimenticios.</p>
+              <a class="under-link" href="#trabajos">Ver aplicaciones <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="nosotros">
+      <div class="wrap about-panel">
+        <div class="about-art">
+          <svg viewBox="0 0 420 400" role="img" aria-label="Representación de una bolsa producida para una marca">
+            <path d="M109 118h200l-19 241H128z" fill="#edf0e5"/>
+            <path d="M109 118h200l-5 42H113z" fill="#d5dacd"/>
+            <path d="M160 120V87c0-34 18-54 49-54s49 20 49 54v33h-16V88c0-25-12-39-33-39s-33 14-33 39v32z" fill="none" stroke="#64725d" stroke-width="11"/>
+            <path d="M171 222c18-29 43-44 76-47-3 34-24 54-59 61" fill="none" stroke="#95a98b" stroke-width="7" stroke-linecap="round"/>
+            <path d="M190 242c-2-19-10-33-25-46" fill="none" stroke="#95a98b" stroke-width="6" stroke-linecap="round"/>
+            <text x="210" y="298" fill="#334232" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" letter-spacing="3">HECHO PARA</text>
+            <text x="210" y="321" fill="#334232" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" letter-spacing="3">TU MARCA</text>
+          </svg>
+          <span class="about-caption">Packaging pensado desde el producto</span>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">02 / Somos KURD</p>
+          <h2>Conocemos el material. Entendemos tu marca.</h2>
+          <p>Somos una empresa de packaging para comercios, empresas e industrias. La experiencia en fabricación de polietileno es parte de nuestro recorrido; hoy, nuestro foco está en la producción de TNT, bolsas de friselina y laminados para alimentos.</p>
+          <p>Nos interesa conocer el uso, el producto y la identidad que hay detrás de cada pedido. Así podemos conversar sobre opciones que tengan sentido para tu proyecto.</p>
+          <a class="under-link" href="#presupuesto">Hablemos sobre tu proyecto <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="trabajos">
+      <div class="wrap">
+        <div class="section-top">
+          <div><p class="eyebrow">Packaging en contexto</p><h2>Cada producto,<br>su presentación.</h2></div>
+          <p class="section-intro">Algunas aplicaciones posibles para explorar cómo el material y el formato se adaptan a cada necesidad.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="work-art">
+              <svg viewBox="0 0 250 300" role="img" aria-label="Bolsa reutilizable de friselina">
+                <path d="M58 90h135l-13 177H72z" fill="#9eb08e"/><path d="M58 90h135l-4 31H61z" fill="#788a6b"/>
+                <path d="M90 91V67c0-24 13-38 36-38s36 14 36 38v24h-12V68c0-17-9-26-24-26s-24 9-24 26v23z" fill="none" stroke="#607258" stroke-width="8"/>
+                <circle cx="125" cy="171" r="30" fill="#e1e8d6"/><path d="M114 180c8-17 19-25 34-28-1 18-12 28-31 32" fill="none" stroke="#58714e" stroke-width="4"/>
+                <path d="M106 189c-2-10-6-17-13-23" fill="none" stroke="#58714e" stroke-width="3"/>
+              </svg>
+              <span class="work-chip">FRISELINA</span>
+            </div>
+            <h3>Compras y comercios</h3><p>Bolsas TNT para acompañar el día a día.</p>
+          </article>
+          <article class="work-card">
+            <div class="work-art">
+              <svg viewBox="0 0 250 300" role="img" aria-label="Sobre laminado para alimentos">
+                <path d="M49 73h151l17 194H34z" fill="#f5f5ef"/><path d="M49 73h151l5 31H46z" fill="#c8cec5"/>
+                <path d="M58 120h136" stroke="#b8beb5" stroke-width="3"/>
+                <path d="M67 143h117v80H67z" fill="#b7d92d"/>
+                <path d="M99 171c10-18 25-27 46-29-2 22-15 35-37 39" fill="none" stroke="#466044" stroke-width="4"/>
+                <path d="M110 187c-1-12-7-21-15-28" fill="none" stroke="#466044" stroke-width="3"/>
+                <text x="125" y="210" fill="#303a2e" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" letter-spacing="1">SABOR REAL</text>
+              </svg>
+              <span class="work-chip">LAMINADO</span>
+            </div>
+            <h3>Alimentos congelados</h3><p>Presentación para productos que necesitan protección.</p>
+          </article>
+          <article class="work-card">
+            <div class="work-art">
+              <svg viewBox="0 0 250 300" role="img" aria-label="Envase flexible para pastas">
+                <path d="M54 68h142l12 202H42z" fill="#d5d9d0"/><path d="M54 68h142l4 28H52z" fill="#aeb6aa"/>
+                <path d="M64 108h120" stroke="#abb3a8" stroke-width="3"/>
+                <path d="M71 134h106v100H71z" fill="#547158"/>
+                <path d="M93 158c8-7 18-7 25 0s17 7 25 0 17-7 25 0" fill="none" stroke="#d5e0bb" stroke-width="4"/>
+                <path d="M92 178h65M92 188h52" stroke="#f3f2e8" stroke-width="2"/>
+                <text x="124" y="217" fill="#e7eddb" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" letter-spacing="2">PASTAS</text>
+              </svg>
+              <span class="work-chip">LAMINADO</span>
+            </div>
+            <h3>Pastas y secos</h3><p>Formatos flexibles para distintas presentaciones.</p>
+          </article>
+          <article class="work-card">
+            <div class="work-art">
+              <svg viewBox="0 0 250 300" role="img" aria-label="Bolsa de friselina personalizada para una marca">
+                <path d="M53 94h147l-13 177H67z" fill="#d8dacf"/><path d="M53 94h147l-4 33H56z" fill="#b6baac"/>
+                <path d="M91 96V72c0-24 13-38 36-38s36 14 36 38v24h-12V73c0-17-9-26-24-26s-24 9-24 26v23z" fill="none" stroke="#888e80" stroke-width="8"/>
+                <rect x="79" y="153" width="96" height="56" fill="#b7d92d"/>
+                <path d="M96 170h61M96 179h43" stroke="#37402e" stroke-width="3"/>
+                <text x="127" y="198" fill="#37402e" text-anchor="middle" font-family="Arial" font-size="8" font-weight="700" letter-spacing="1.5">IDENTIDAD PROPIA</text>
+              </svg>
+              <span class="work-chip">A MEDIDA</span>
+            </div>
+            <h3>Marcas y eventos</h3><p>Detalles personalizados en cada presentación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="proceso">
+      <div class="wrap">
+        <div class="process-head">
+          <div><p class="eyebrow">03 / De la idea al packaging</p><h2>Empecemos por lo que imaginás.</h2></div>
+          <a class="under-link" href="#presupuesto">Prepará tu consulta <span>↗</span></a>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-index">01</span><h3>Contanos tu idea</h3><p>Qué producto tenés, cómo lo presentás y qué necesitás de tu packaging.</p></article>
+          <article class="step"><span class="step-index">02</span><h3>Definamos los detalles</h3><p>Material, formato, medidas e impresión: cada decisión parte de tu proyecto.</p></article>
+          <article class="step"><span class="step-index">03</span><h3>Avancemos con una propuesta</h3><p>Con la información reunida, evaluamos opciones y próximos pasos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="consult">
+      <div class="wrap consult-panel">
+        <div class="consult-copy">
+          <p class="eyebrow">No hace falta tener todas las respuestas</p>
+          <h2>Vos conocés tu producto. Pensemos juntos el packaging.</h2>
+          <p>Con una idea, una medida o una aplicación ya tenemos un punto de partida para conversar.</p>
+        </div>
+        <a class="button" href="#presupuesto">Necesito asesoramiento <span class="button-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="budget" id="presupuesto">
+      <div class="wrap budget-layout">
+        <aside class="budget-sidebar" aria-label="Progreso del presupuesto">
+          <p class="eyebrow">04 / Tu proyecto</p>
+          <ol class="budget-steps" aria-label="Pasos del formulario">
+            <li class="budget-step" data-step-indicator="0" aria-current="step"><span class="budget-step-number">01</span><span class="budget-step-copy"><strong>Producto</strong><span>Elegí una línea</span></span></li>
+            <li class="budget-step" data-step-indicator="1"><span class="budget-step-number">02</span><span class="budget-step-copy"><strong>Características</strong><span>Definí los detalles</span></span></li>
+            <li class="budget-step" data-step-indicator="2"><span class="budget-step-number">03</span><span class="budget-step-copy"><strong>Tus datos</strong><span>Cómo contactarte</span></span></li>
+            <li class="budget-step" data-step-indicator="3"><span class="budget-step-number">04</span><span class="budget-step-copy"><strong>Revisión</strong><span>Revisá tu consulta</span></span></li>
+          </ol>
+          <div class="budget-help">
+            <div class="budget-help-icon" aria-hidden="true">✳</div>
+            <h3>¿No tenés todos los detalles?</h3>
+            <p>Completá lo que ya sabés. Podemos ayudarte a definir el resto cuando conversemos.</p>
+          </div>
+        </aside>
+        <form class="budget-panel" id="budget-form" novalidate>
+          <div class="budget-step-content" data-step="0">
+            <div class="budget-heading">
+              <p class="eyebrow">PASO 01 — PRODUCTO</p>
+              <h3>¿Qué estás buscando?</h3>
+              <p>Elegí la línea que mejor se adapta a tu proyecto.</p>
+            </div>
+            <fieldset class="budget-options">
+              <legend class="sr-only">Seleccioná una línea de producto</legend>
+              <label class="budget-choice">
+                <input type="radio" name="linea" value="friselina" required>
+                <span class="budget-choice-copy"><strong>Bolsas de friselina / TNT</strong><span>Reutilizables, para comercios, compras y eventos.</span></span>
+              </label>
+              <label class="budget-choice">
+                <input type="radio" name="linea" value="laminados">
+                <span class="budget-choice-copy"><strong>Laminados para alimentos</strong><span>Envases flexibles para pastas, congelados y otros productos.</span></span>
+              </label>
+              <label class="budget-choice">
+                <input type="radio" name="linea" value="asesoramiento">
+                <span class="budget-choice-copy"><strong>Necesito asesoramiento</strong><span>Tengo una idea y quiero que me ayuden a encontrar el formato.</span></span>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="budget-step-content" data-step="1" hidden>
+            <div class="budget-heading">
+              <p class="eyebrow">PASO 02 — CARACTERÍSTICAS</p>
+              <h3>Contanos un poco más.</h3>
+              <p>Podés marcar más de una opción y completar lo que ya tengas definido.</p>
+            </div>
+            <div class="budget-content-grid">
+              <fieldset class="budget-checks budget-field full">
+                <legend>¿Qué productos te interesan?</legend>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Bolsa reutilizable verde">Bolsa reutilizable verde</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Bolsa TNT negra">Bolsa TNT negra</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Bolsa de friselina natural">Bolsa de friselina natural</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Envase flexible para alimentos">Envase flexible para alimentos</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Envase para pastas">Envase para pastas</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Envase para congelados">Envase para congelados</label>
+                <label class="budget-check"><input type="checkbox" name="productos" value="Otro formato">Otro formato</label>
+              </fieldset>
+              <div class="budget-field">
+                <label for="budget-quantity">Cantidad aproximada</label>
+                <input id="budget-quantity" name="cantidad" type="number" min="1" step="1" inputmode="numeric" placeholder="Ej.: 500">
+              </div>
+              <div class="budget-field">
+                <label for="budget-size">Medidas aproximadas</label>
+                <input id="budget-size" name="medidas" type="text" maxlength="120" placeholder="Ej.: 30 × 40 cm">
+              </div>
+              <fieldset class="budget-checks budget-field full">
+                <legend>Impresión</legend>
+                <label class="budget-check"><input type="checkbox" name="impresion" value="Sin impresión">Sin impresión</label>
+                <label class="budget-check"><input type="checkbox" name="impresion" value="Un color">Un color</label>
+                <label class="budget-check"><input type="checkbox" name="impresion" value="Varios colores">Varios colores</label>
+                <label class="budget-check"><input type="checkbox" name="impresion" value="A definir">A definir</label>
+              </fieldset>
+              <div class="budget-field full">
+                <label for="budget-details">Detalles del proyecto</label>
+                <textarea id="budget-details" name="detalle" maxlength="2000" placeholder="Uso, material, formato u otra información que quieras compartir."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-step-content" data-step="2" hidden>
+            <div class="budget-heading">
+              <p class="eyebrow">PASO 03 — TUS DATOS</p>
+              <h3>¿Cómo te contactamos?</h3>
+              <p>Dejanos tus datos para incluirlos en la consulta.</p>
+            </div>
+            <div class="budget-content-grid">
+              <div class="budget-field">
+                <label for="budget-name">Nombre y apellido *</label>
+                <input id="budget-name" name="nombre" type="text" autocomplete="name" maxlength="120" required>
+              </div>
+              <div class="budget-field">
+                <label for="budget-email">Email *</label>
+                <input id="budget-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+              </div>
+              <div class="budget-field">
+                <label for="budget-company">Empresa</label>
+                <input id="budget-company" name="empresa" type="text" autocomplete="organization" maxlength="120">
+              </div>
+              <div class="budget-field">
+                <label for="budget-phone">Teléfono</label>
+                <input id="budget-phone" name="telefono" type="tel" autocomplete="tel" maxlength="40" placeholder="Código de área + número">
+              </div>
+              <div class="budget-field full">
+                <label for="budget-location">Localidad / provincia</label>
+                <input id="budget-location" name="localidad" type="text" autocomplete="address-level1" maxlength="120" placeholder="Ej.: Buenos Aires">
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-step-content" data-step="3" hidden>
+            <div class="budget-heading">
+              <p class="eyebrow">PASO 04 — REVISIÓN</p>
+              <h3>Tu consulta está lista.</h3>
+              <p>Revisá los datos antes de preparar el correo o guardar una copia.</p>
+            </div>
+            <dl class="budget-review" id="budget-review"></dl>
+            <p class="budget-email-note">Al preparar el email, agregá la dirección de KURD como destinatario. La incorporaremos aquí cuando nos la compartas.</p>
+          </div>
+
+          <div class="budget-actions">
+            <span class="budget-actions-left" id="budget-step-count">Paso 1 de 4</span>
+            <div class="budget-actions-right">
+              <button class="button" id="budget-back" type="button" hidden>← Anterior</button>
+              <button class="button primary" id="budget-next" type="button">Siguiente <span class="button-arrow" aria-hidden="true">→</span></button>
+              <button class="button primary" id="budget-email-button" type="button" hidden>Preparar email <span class="button-arrow" aria-hidden="true">↗</span></button>
+              <button class="button" id="budget-download" type="button" hidden>Guardar copia <span class="button-arrow" aria-hidden="true">↓</span></button>
+              <button class="button" id="budget-copy" type="button" hidden>Copiar consulta</button>
+            </div>
+          </div>
+          <p class="budget-status" id="budget-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="faq" id="preguntas">
+      <div class="wrap faq-layout">
+        <div class="faq-intro">
+          <p class="eyebrow">Antes de conversar</p>
+          <h2>Buenas preguntas. Un buen comienzo.</h2>
+          <p>Si todavía estás definiendo el packaging, podemos empezar por lo que ya sabés de tu producto.</p>
+        </div>
+        <div class="faq-list">
+          <details><summary>¿Qué líneas de packaging fabrica KURD?</summary><p>Nuestro foco actual está en la fabricación de TNT y bolsas de friselina, además de laminados para alimentos como helados, galletitas y fideos.</p></details>
+          <details><summary>¿Qué información necesito para pedir presupuesto?</summary><p>La línea que te interesa, una cantidad aproximada y el uso previsto. Si ya conocés medidas, material o impresión, también podés incluirlos.</p></details>
+          <details><summary>¿Puedo consultar aunque todavía no tenga el diseño?</summary><p>Sí. Contanos qué querés presentar y qué necesitás resolver. Podemos conversar sobre las opciones antes de definir el diseño.</p></details>
+          <details><summary>¿Las bolsas de friselina se pueden personalizar?</summary><p>Las opciones de formato, medidas e impresión dependen de cada proyecto. Compartinos tu idea para evaluar las alternativas posibles.</p></details>
+          <details><summary>¿Qué productos se pueden envasar con laminados?</summary><p>Fabricamos laminados para distintas aplicaciones alimenticias, entre ellas helados, galletitas y pastas. La propuesta depende del producto y su presentación.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="wrap">
+      <div class="footer-main">
+        <div class="footer-about">
+          <a class="logo" href="index.html#inicio" aria-label="KURD S.A., volver al inicio"><img class="logo-image" src="kurd-logo.png" alt="Kurd S.A. Transformadores por extrusión"></a>
+          <p>Packaging para comercios, empresas e industrias. Bolsas de friselina y laminados para alimentos.</p>
+        </div>
+        <div class="footer-col"><h3>Explorá</h3><a href="productos.html">Productos</a><a href="nosotros.html">Nosotros</a><a href="productos.html#aplicaciones">Aplicaciones</a><a href="#proceso">Cómo empezamos</a></div>
+        <div class="footer-col"><h3>El próximo paso</h3><p>Contanos qué necesitás. Empecemos por tu idea.</p><a href="#presupuesto">Pedí tu presupuesto ↗</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> KURD S.A.</span><a href="#inicio">Volver arriba ↑</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const budgetForm = document.getElementById("budget-form");
+    const budgetStatus = document.getElementById("budget-status");
+    const budgetSteps = [...budgetForm.querySelectorAll(".budget-step-content")];
+    const budgetIndicators = [...document.querySelectorAll("[data-step-indicator]")];
+    const budgetBack = document.getElementById("budget-back");
+    const budgetNext = document.getElementById("budget-next");
+    const budgetEmailButton = document.getElementById("budget-email-button");
+    const budgetDownload = document.getElementById("budget-download");
+    const budgetCopy = document.getElementById("budget-copy");
+    let activeBudgetStep = 0;
+    const requestedLine = new URLSearchParams(window.location.search).get("linea");
+
+    if (["friselina", "laminados", "asesoramiento"].includes(requestedLine)) {
+      const requestedOption = budgetForm.querySelector(`input[name="linea"][value="${requestedLine}"]`);
+      if (requestedOption) requestedOption.checked = true;
+    }
+
+    function updateBudgetStep() {
+      budgetSteps.forEach((step, index) => {
+        step.hidden = index !== activeBudgetStep;
+      });
+      budgetIndicators.forEach((indicator, index) => {
+        if (index === activeBudgetStep) {
+          indicator.setAttribute("aria-current", "step");
+        } else {
+          indicator.removeAttribute("aria-current");
+        }
+      });
+      document.getElementById("budget-step-count").textContent = `Paso ${activeBudgetStep + 1} de ${budgetSteps.length}`;
+      budgetBack.hidden = activeBudgetStep === 0;
+      budgetNext.hidden = activeBudgetStep === budgetSteps.length - 1;
+      budgetEmailButton.hidden = activeBudgetStep !== budgetSteps.length - 1;
+      budgetDownload.hidden = activeBudgetStep !== budgetSteps.length - 1;
+      budgetCopy.hidden = activeBudgetStep !== budgetSteps.length - 1;
+      budgetStatus.textContent = "";
+      if (activeBudgetStep === budgetSteps.length - 1) renderBudgetReview();
+    }
+
+    function selectedValues(name) {
+      return [...budgetForm.querySelectorAll(`input[name="${name}"]:checked`)].map((input) => input.value);
+    }
+
+    function budgetFormData() {
+      const formData = new FormData(budgetForm);
+      const lineLabels = {
+        friselina: "Bolsas de friselina / TNT",
+        laminados: "Laminados para alimentos",
+        asesoramiento: "Necesito asesoramiento"
+      };
+      return {
+        "Línea de producto": lineLabels[formData.get("linea")] || "No indicado",
+        "Productos de interés": selectedValues("productos").join(", ") || "No indicado",
+        "Cantidad aproximada": formData.get("cantidad") || "No indicado",
+        "Medidas aproximadas": formData.get("medidas") || "No indicado",
+        "Impresión": selectedValues("impresion").join(", ") || "No indicado",
+        "Detalles del proyecto": formData.get("detalle") || "No indicado",
+        "Nombre y apellido": formData.get("nombre") || "No indicado",
+        "Email": formData.get("email") || "No indicado",
+        "Empresa": formData.get("empresa") || "No indicado",
+        "Teléfono": formData.get("telefono") || "No indicado",
+        "Localidad / provincia": formData.get("localidad") || "No indicado"
+      };
+    }
+
+    function renderBudgetReview() {
+      const review = document.getElementById("budget-review");
+      review.replaceChildren();
+      Object.entries(budgetFormData()).forEach(([label, value]) => {
+        const row = document.createElement("div");
+        if (label === "Detalles del proyecto") row.className = "full";
+        const term = document.createElement("dt");
+        term.textContent = label;
+        const description = document.createElement("dd");
+        description.textContent = value;
+        row.append(term, description);
+        review.append(row);
+      });
+    }
+
+    function createBudgetText() {
+      return [
+        "CONSULTA DE PRESUPUESTO - KURD S.A.",
+        "",
+        ...Object.entries(budgetFormData()).map(([label, value]) => `${label}: ${value}`)
+      ].join("\n");
+    }
+
+    budgetNext.addEventListener("click", () => {
+      if (activeBudgetStep === 0 && !budgetForm.querySelector('input[name="linea"]:checked')) {
+        budgetStatus.textContent = "Elegí una línea para continuar.";
+        budgetForm.querySelector('input[name="linea"]').focus();
+        return;
+      }
+
+      const currentInputs = [...budgetSteps[activeBudgetStep].querySelectorAll("input, select, textarea")];
+      const invalidInput = currentInputs.find((input) => !input.checkValidity());
+      if (invalidInput) {
+        invalidInput.reportValidity();
+        return;
+      }
+
+      activeBudgetStep = Math.min(activeBudgetStep + 1, budgetSteps.length - 1);
+      updateBudgetStep();
+      budgetSteps[activeBudgetStep].querySelector("h3").focus({ preventScroll: true });
+    });
+
+    budgetBack.addEventListener("click", () => {
+      activeBudgetStep = Math.max(activeBudgetStep - 1, 0);
+      updateBudgetStep();
+      budgetSteps[activeBudgetStep].querySelector("h3").focus({ preventScroll: true });
+    });
+
+    budgetForm.querySelectorAll(".budget-heading h3").forEach((heading) => {
+      heading.tabIndex = -1;
+    });
+
+    budgetDownload.addEventListener("click", () => {
+      const file = new Blob([createBudgetText()], { type: "text/plain;charset=utf-8" });
+      const downloadUrl = URL.createObjectURL(file);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = downloadUrl;
+      downloadLink.download = "consulta-presupuesto-kurd.txt";
+      document.body.append(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+      budgetStatus.textContent = "La consulta se descargó en tu dispositivo.";
+    });
+
+    budgetCopy.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(createBudgetText());
+        budgetStatus.textContent = "Consulta copiada al portapapeles.";
+      } catch {
+        budgetStatus.textContent = "No se pudo copiar automáticamente. Podés guardar la consulta como archivo.";
+      }
+    });
+
+    budgetEmailButton.addEventListener("click", () => {
+      const subject = "Consulta de presupuesto - KURD S.A.";
+      const body = createBudgetText();
+      window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      budgetStatus.textContent = "Se está preparando un borrador de email. Agregá la dirección de KURD como destinatario.";
+    });
+
+    budgetForm.addEventListener("submit", (event) => event.preventDefault());
+    updateBudgetStep();
+  </script>
+</body>
+</html>

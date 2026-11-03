@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#88E788">
+  <meta name="description" content="Explorá las bolsas de friselina y los laminados para alimentos de KURD S.A.">
+  <title>Productos | KURD S.A.</title>
+  <style>
+    :root {
+      --paper: #EAFED9;
+      --ink: #171916;
+      --muted: #b8bbb5;
+      --line: #393f32;
+      --lime: #b7d92d;
+      --forest: #263d2b;
+      --night: #142308;
+      --panel: #1b2d0c;
+      --sans: Arial, Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --wrap: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { margin: 0; background: var(--night); color: white; font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    svg { display: block; }
+    .wrap { width: min(var(--wrap), calc(100% - 72px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 12px 18px; transform: translateY(-160%); background: var(--ink); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .header { position: sticky; z-index: 20; top: 0; border-top: 3px solid var(--forest); background: #88E788; color: var(--ink); }
+    .nav { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 25px; }
+    .logo-image { display: block; width: 62px; height: 64px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 40px); }
+    .nav-links a { position: relative; padding: 12px 0; font-size: .88rem; font-weight: 700; }
+    .nav-links a[aria-current="page"]::after, .nav-links a:hover::after { position: absolute; right: 0; bottom: 5px; left: 0; height: 2px; background: var(--forest); content: ""; }
+    .nav-actions { display: flex; align-items: center; }
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 16px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--forest); color: white; font-size: .84rem; font-weight: 700; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: #172b1b; }
+    .button-arrow { font-size: 1.15rem; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(23,25,22,.4); border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.4rem; cursor: pointer; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; font-size: .71rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 23px; height: 2px; background: var(--lime); content: ""; }
+    .page-intro { padding: 54px 0 38px; border-bottom: 1px solid var(--line); }
+    .breadcrumbs { display: flex; gap: 12px; margin-bottom: 36px; color: var(--muted); font-size: .75rem; }
+    .breadcrumbs a:hover { color: var(--lime); }
+    .page-intro h1 { margin: 16px 0 12px; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; letter-spacing: -.06em; line-height: 1; }
+    .page-intro h1 span { color: #88E788; }
+    .page-intro > .wrap > p:last-child { max-width: 600px; margin: 0; color: var(--muted); font-size: .95rem; }
+    .catalog { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; padding-top: 38px; padding-bottom: 100px; }
+    .filters { align-self: start; }
+    .filter-search { padding: 18px; background: #202b14; }
+    .filter-search label, .filter-group legend { display: block; margin-bottom: 12px; font-size: .85rem; font-weight: 700; }
+    .filter-search input { width: 100%; min-height: 42px; padding: 9px 11px; border: 1px solid #48543d; background: var(--night); color: white; font-size: .78rem; }
+    .filter-group { padding: 22px 0; margin: 0; border: 0; border-bottom: 1px solid var(--line); }
+    .filter-option { display: flex; align-items: center; gap: 9px; padding: 7px 0; color: var(--muted); font-size: .8rem; cursor: pointer; }
+    .filter-option input { accent-color: var(--lime); }
+    .filter-option:has(input:checked) { color: white; }
+    .catalog-content { min-width: 0; }
+    .catalog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 16px; }
+    .catalog-count { margin: 0; color: var(--muted); font-size: .82rem; }
+    .catalog-count strong { color: white; }
+    .sort-label { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .78rem; }
+    .sort-label select { min-height: 40px; padding: 7px 28px 7px 10px; border: 1px solid var(--line); background: var(--night); color: white; }
+    .catalog-note { padding: 12px 15px; margin-bottom: 20px; border-left: 2px solid var(--lime); background: #202b14; color: var(--muted); font-size: .72rem; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .product-card { min-width: 0; overflow: hidden; border: 1px solid #344126; background: var(--panel); }
+    .product-art { position: relative; display: grid; min-height: 275px; place-items: center; overflow: hidden; background: #f5f5ef; }
+    .product-art svg { width: 82%; height: 240px; filter: drop-shadow(0 15px 11px rgba(23,25,22,.2)); transition: transform .25s ease; }
+    .product-card:hover .product-art svg { transform: translateY(-4px); }
+    .product-tag { position: absolute; top: 12px; left: 12px; padding: 5px 8px; background: var(--forest); color: white; font-size: .62rem; font-weight: 700; }
+    .product-info { padding: 17px; }
+    .product-info h2 { margin: 0 0 7px; font-family: var(--sans); font-size: 1rem; font-weight: 700; letter-spacing: 0; }
+    .product-info p { min-height: 42px; margin: 0 0 14px; color: var(--muted); font-size: .79rem; }
+    .product-info a { display: inline-flex; gap: 8px; align-items: center; color: var(--lime); font-size: .76rem; font-weight: 700; }
+    .product-info a:hover { color: #d3e993; }
+    .no-results { grid-column: 1 / -1; padding: 40px; border: 1px solid var(--line); color: var(--muted); text-align: center; }
+    .applications { padding: 75px 0; background: #1b2d0c; }
+    .applications h2 { max-width: 700px; margin: 17px 0; font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+    .applications p:not(.eyebrow) { max-width: 620px; color: var(--muted); }
+    .footer { padding: 40px 0 22px; background: #101b06; }
+    .footer-main { display: flex; align-items: start; justify-content: space-between; gap: 35px; padding-bottom: 27px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { color: var(--muted); font-size: .8rem; }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-bottom { padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+    :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+    @media (max-width: 950px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 36px); }
+      .nav { position: relative; min-height: 68px; gap: 12px; }
+      .logo-image { width: 52px; height: 54px; }
+      .menu-toggle { display: block; margin-left: auto; }
+      .nav-links { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 18px 18px; background: #88E788; box-shadow: 0 12px 22px rgba(0,0,0,.15); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { min-height: 44px; padding: 12px 5px; border-bottom: 1px solid rgba(23,25,22,.16); }
+      .nav-links a[aria-current="page"]::after, .nav-links a:hover::after { display: none; }
+      .nav-actions { display: none; }
+      .page-intro { padding-top: 32px; }
+      .catalog { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+      .filters { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .filter-group { padding: 0; border: 0; }
+      .product-art { min-height: 230px; }
+      .product-art svg { height: 205px; }
+      .footer-main { flex-direction: column; }
+    }
+    @media (max-width: 450px) {
+      .filters { grid-template-columns: 1fr; }
+      .catalog-toolbar { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="header">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a href="index.html#inicio" aria-label="KURD S.A., inicio"><img class="logo-image" src="kurd-logo.png" alt="KURD S.A."></a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html" aria-current="page">Productos</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+      <div class="nav-actions"><a class="button" href="index.html?linea=asesoramiento#presupuesto">Pedí tu presupuesto <span class="button-arrow" aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+  <main id="contenido">
+    <section class="page-intro">
+      <div class="wrap">
+        <nav class="breadcrumbs" aria-label="Ubicación"><a href="index.html#inicio">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Productos</span></nav>
+        <p class="eyebrow">Materiales, formatos y posibilidades</p>
+        <h1>Nuestros <span>productos.</span></h1>
+        <p>Explorá las bolsas de friselina y los laminados para alimentos. Encontrá un punto de partida para el packaging de tu marca.</p>
+      </div>
+    </section>
+    <section class="catalog wrap" aria-label="Catálogo de productos">
+      <aside class="filters" aria-label="Filtros de productos">
+        <div class="filter-search">
+          <label for="product-search">Buscar productos</label>
+          <input id="product-search" type="search" placeholder="¿Qué estás buscando?" autocomplete="off">
+        </div>
+        <fieldset class="filter-group">
+          <legend>Categorías</legend>
+          <label class="filter-option"><input type="radio" name="category" value="todos" checked> Todos los productos <span>(6)</span></label>
+          <label class="filter-option"><input type="radio" name="category" value="friselina"> Friselina / TNT <span>(3)</span></label>
+          <label class="filter-option"><input type="radio" name="category" value="laminados"> Laminados <span>(3)</span></label>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Formato</legend>
+          <label class="filter-option"><input type="radio" name="format" value="todos" checked> Todos los formatos</label>
+          <label class="filter-option"><input type="radio" name="format" value="bolsa"> Bolsas</label>
+          <label class="filter-option"><input type="radio" name="format" value="envase"> Envases flexibles</label>
+        </fieldset>
+      </aside>
+      <div class="catalog-content">
+        <div class="catalog-toolbar">
+          <p class="catalog-count" id="product-count" role="status" aria-live="polite">Mostrando <strong>6</strong> resultados</p>
+          <label class="sort-label" for="product-sort">Ordenar
+            <select id="product-sort">
+              <option value="default">Orden predeterminado</option>
+              <option value="az">Nombre: A a Z</option>
+              <option value="za">Nombre: Z a A</option>
+            </select>
+          </label>
+        </div>
+        <p class="catalog-note">Catálogo de referencia. Los diseños e imágenes son ilustrativos. Modelos y disponibilidad pendientes de confirmación.</p>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card" data-category="friselina" data-format="bolsa" data-name="Bolsa reutilizable verde">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Bolsa reutilizable verde de friselina"><path d="M56 92h138l-13 150H69z" fill="#8bd32c"/><path d="M56 92h138l-4 26H59z" fill="#74b51c"/><path d="M91 94V67c0-23 13-36 34-36s34 13 34 36v27h-12V68c0-15-8-24-22-24s-22 9-22 24v26z" fill="none" stroke="#74b51c" stroke-width="9"/></svg></div>
+            <div class="product-info"><h2>Bolsa reutilizable verde</h2><p>Bolsa de friselina para comercios, compras y eventos.</p><a href="index.html?linea=friselina#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="product-card" data-category="friselina" data-format="bolsa" data-name="Bolsa TNT negra">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Bolsa TNT negra con manija troquelada"><path d="M57 53h138l-8 190H65z" fill="#20211e"/><path d="M57 53h138l-3 23H58z" fill="#11120f"/><path d="M98 76l3-14h50l3 14-13 15h-31z" fill="#f5f5ef"/></svg></div>
+            <div class="product-info"><h2>Bolsa TNT negra</h2><p>Formato con manija troquelada y amplia superficie de impresión.</p><a href="index.html?linea=friselina#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="product-card" data-category="friselina" data-format="bolsa" data-name="Bolsa de friselina natural">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Bolsa natural de friselina"><path d="M48 110h154l-13 132H61z" fill="#e9e4d3"/><path d="M48 110h154l-4 23H50z" fill="#d2cbb8"/><path d="M82 112V73c0-30 15-48 43-48s43 18 43 48v39h-13V74c0-21-10-34-30-34s-30 13-30 34v38z" fill="none" stroke="#c7bea8" stroke-width="10"/></svg></div>
+            <div class="product-info"><h2>Bolsa de friselina natural</h2><p>Alternativa reutilizable para presentar y transportar productos.</p><a href="index.html?linea=friselina#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="product-card" data-category="laminados" data-format="envase" data-name="Envase flexible para alimentos">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Envase laminado verde para alimentos"><path d="M64 32h122l15 208H49z" fill="#f1f0e9"/><path d="M64 32h122l5 23H62z" fill="#c6cbc2"/><path d="M70 82h110v98H70z" fill="#00cc00"/><path d="M91 110h69M91 120h48" stroke="#263d2b" stroke-width="4"/><text x="125" y="152" text-anchor="middle" fill="#263d2b" font-size="12" font-family="Arial" letter-spacing="2">ALIMENTOS</text></svg></div>
+            <div class="product-info"><h2>Envase flexible para alimentos</h2><p>Laminados para distintas aplicaciones de la industria alimenticia.</p><a href="index.html?linea=laminados#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="product-card" data-category="laminados" data-format="envase" data-name="Envase para pastas">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Envase flexible para pastas"><path d="M59 42h132l13 198H46z" fill="#e1e4dc"/><path d="M59 42h132l4 24H57z" fill="#bdc4b8"/><path d="M72 86h106v99H72z" fill="#547158"/><path d="M91 114c9-8 18-8 27 0s18 8 27 0 18-8 27 0" fill="none" stroke="#eafed9" stroke-width="4"/><text x="125" y="160" text-anchor="middle" fill="white" font-size="13" font-family="Arial" letter-spacing="3">PASTAS</text></svg></div>
+            <div class="product-info"><h2>Envase para pastas</h2><p>Presentación laminada para pastas secas y otros alimentos.</p><a href="index.html?linea=laminados#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="product-card" data-category="laminados" data-format="envase" data-name="Envase para productos congelados">
+            <div class="product-art"><span class="product-tag">Referencia</span><svg viewBox="0 0 250 260" role="img" aria-label="Envase laminado para productos congelados"><path d="M62 36h126l16 204H46z" fill="#f5f4ed"/><path d="M62 36h126l5 23H60z" fill="#cbd1c7"/><path d="M72 83h106v104H72z" fill="#b7d92d"/><path d="M92 114h66M92 124h48" stroke="#263d2b" stroke-width="4"/><text x="125" y="159" text-anchor="middle" fill="#263d2b" font-size="10" font-family="Arial" letter-spacing="1.5">CONGELADOS</text></svg></div>
+            <div class="product-info"><h2>Envase para congelados</h2><p>Packaging flexible para helados y alimentos congelados.</p><a href="index.html?linea=laminados#presupuesto">Consultar por este producto <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <p class="no-results" id="no-results" hidden>No encontramos productos con esos filtros. Probá otra búsqueda.</p>
+        </div>
+      </div>
+    </section>
+    <section class="applications" id="aplicaciones">
+      <div class="wrap">
+        <p class="eyebrow">Aplicaciones</p>
+        <h2>Cada producto tiene su presentación.</h2>
+        <p>El formato, el material y la impresión se definen según el uso de tu producto. Contanos tu idea y la revisamos juntos.</p>
+        <a class="button" href="index.html?linea=asesoramiento#presupuesto">Consultar por una aplicación <span class="button-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <a href="index.html#inicio" aria-label="KURD S.A., inicio"><img class="logo-image" src="kurd-logo.png" alt="KURD S.A."></a>
+        <nav class="footer-links" aria-label="Navegación de pie"><a href="index.html#inicio">Inicio</a><a href="nosotros.html">Nosotros</a><a href="index.html?linea=asesoramiento#presupuesto">Presupuesto</a></nav>
+      </div>
+      <div class="footer-bottom">© <span data-year></span> KURD S.A. · Friselina · Laminados · Packaging</div>
+    </div>
+  </footer>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+      menuToggle.textContent = "☰";
+    }));
+    document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+    const productGrid = document.getElementById("product-grid");
+    const productCards = [...productGrid.querySelectorAll(".product-card")];
+    const searchInput = document.getElementById("product-search");
+    const countOutput = document.getElementById("product-count");
+    const noResults = document.getElementById("no-results");
+    const sortSelect = document.getElementById("product-sort");
+    function updateProducts() {
+      const category = document.querySelector('input[name="category"]:checked').value;
+      const format = document.querySelector('input[name="format"]:checked').value;
+      const query = searchInput.value.trim().toLocaleLowerCase("es");
+      const visibleCards = productCards.filter((card) => {
+        const matchesCategory = category === "todos" || card.dataset.category === category;
+        const matchesFormat = format === "todos" || card.dataset.format === format;
+        const matchesQuery = card.dataset.name.toLocaleLowerCase("es").includes(query) || card.innerText.toLocaleLowerCase("es").includes(query);
+        card.hidden = !(matchesCategory && matchesFormat && matchesQuery);
+        return !card.hidden;
+      });
+      visibleCards.sort((a, b) => {
+        const comparison = a.dataset.name.localeCompare(b.dataset.name, "es");
+        return sortSelect.value === "az" ? comparison : sortSelect.value === "za" ? -comparison : productCards.indexOf(a) - productCards.indexOf(b);
+      }).forEach((card) => productGrid.insertBefore(card, noResults));
+      countOutput.innerHTML = `Mostrando <strong>${visibleCards.length}</strong> ${visibleCards.length === 1 ? "resultado" : "resultados"}`;
+      noResults.hidden = visibleCards.length > 0;
+    }
+    document.querySelectorAll('input[name="category"], input[name="format"]').forEach((input) => input.addEventListener("change", updateProducts));
+    searchInput.addEventListener("input", updateProducts);
+    sortSelect.addEventListener("change", updateProducts);
+    updateProducts();
+  </script>
+</body>
+</html>

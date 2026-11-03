@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#88E788">
+  <meta name="description" content="Conocé KURD S.A., su experiencia en packaging y el trabajo que acompaña cada proyecto.">
+  <title>Nosotros | KURD S.A.</title>
+  <style>
+    :root {
+      --paper: #EAFED9;
+      --ink: #171916;
+      --muted: #b8bbb5;
+      --line: #393f32;
+      --lime: #b7d92d;
+      --forest: #263d2b;
+      --night: #142308;
+      --panel: #1b2d0c;
+      --sans: Arial, Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --wrap: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; background: var(--night); color: white; font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    svg { display: block; }
+    .wrap { width: min(var(--wrap), calc(100% - 72px)); margin-inline: auto; }
+    .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 12px 18px; transform: translateY(-160%); background: var(--ink); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .header { position: sticky; z-index: 20; top: 0; border-top: 3px solid var(--forest); background: #88E788; color: var(--ink); }
+    .nav { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 25px; }
+    .logo-image { display: block; width: 62px; height: 64px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 40px); }
+    .nav-links a { position: relative; padding: 12px 0; font-size: .88rem; font-weight: 700; }
+    .nav-links a[aria-current="page"]::after, .nav-links a:hover::after { position: absolute; right: 0; bottom: 5px; left: 0; height: 2px; background: var(--forest); content: ""; }
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 16px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--forest); color: white; font-size: .84rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: #172b1b; }
+    .button-arrow { font-size: 1.15rem; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(23,25,22,.4); border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.4rem; cursor: pointer; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0; font-size: .71rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 23px; height: 2px; background: var(--lime); content: ""; }
+    .crumbs { display: flex; gap: 12px; margin-bottom: 48px; color: var(--muted); font-size: .76rem; }
+    .crumbs a:hover { color: var(--lime); }
+    .intro { padding: 45px 0 75px; }
+    .intro h1 { max-width: 900px; margin: 20px 0 22px; font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 800; letter-spacing: -.065em; line-height: .96; }
+    .intro h1 span { color: #88E788; }
+    .intro-copy { max-width: 630px; margin: 0; color: #d3d9cd; font-size: clamp(1rem, 1.5vw, 1.2rem); }
+    .story { padding: 60px 0 90px; background: var(--panel); }
+    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(40px, 8vw, 105px); }
+    .story-art { position: relative; display: grid; min-height: 430px; place-items: center; overflow: hidden; background: #88E788; }
+    .story-art::before { position: absolute; width: 270px; height: 270px; border: 1px solid rgba(23,25,22,.25); border-radius: 50%; box-shadow: 0 0 0 35px rgba(23,25,22,.05), 0 0 0 70px rgba(23,25,22,.04); content: ""; }
+    .story-art svg { position: relative; width: 75%; max-width: 350px; filter: drop-shadow(0 16px 13px rgba(23,25,22,.2)); }
+    .story-art-label { position: absolute; right: 18px; bottom: 16px; left: 18px; color: var(--ink); font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .story-copy h2, .focus h2, .values h2 { margin: 18px 0; font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: -.06em; line-height: 1; }
+    .story-copy p:not(.eyebrow) { color: var(--muted); font-size: .93rem; }
+    .focus { padding: 90px 0; }
+    .focus-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 40px; }
+    .focus-head > p { max-width: 370px; margin-bottom: 4px; color: var(--muted); font-size: .9rem; }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .focus-card { min-height: 250px; padding: clamp(25px, 4vw, 44px); border: 1px solid #48543d; background: var(--panel); }
+    .focus-number { display: inline-grid; width: 38px; height: 38px; place-items: center; border: 1px solid #66744f; border-radius: 50%; color: var(--lime); font-family: var(--serif); }
+    .focus-card h3 { margin: 25px 0 9px; font-family: var(--serif); font-size: 1.8rem; font-weight: 400; }
+    .focus-card p { max-width: 440px; margin: 0; color: var(--muted); font-size: .86rem; }
+    .values { padding: 75px 0; background: #00cc00; color: white; }
+    .values-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 45px; }
+    .values h2 { max-width: 490px; margin-bottom: 0; }
+    .values-copy { color: rgba(255,255,255,.92); }
+    .values-copy p { margin-bottom: 12px; }
+    .values-copy p:last-child { margin-bottom: 0; }
+    .cta { padding: 90px 0; }
+    .cta-panel { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: clamp(30px, 5vw, 60px); background: var(--lime); color: var(--ink); }
+    .cta-panel .eyebrow::before { background: var(--ink); }
+    .cta-panel h2 { max-width: 670px; margin: 16px 0 0; font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+    .cta-panel .button { flex-shrink: 0; background: var(--ink); }
+    .footer { padding: 40px 0 22px; background: #101b06; }
+    .footer-main { display: flex; align-items: start; justify-content: space-between; gap: 35px; padding-bottom: 27px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { color: var(--muted); font-size: .8rem; }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-bottom { padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+    :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 36px); }
+      .nav { position: relative; min-height: 68px; gap: 12px; }
+      .logo-image { width: 52px; height: 54px; }
+      .menu-toggle { display: block; margin-left: auto; }
+      .nav-links { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 18px 18px; background: #88E788; box-shadow: 0 12px 22px rgba(0,0,0,.15); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { min-height: 44px; padding: 12px 5px; border-bottom: 1px solid rgba(23,25,22,.16); }
+      .nav-links a[aria-current="page"]::after, .nav-links a:hover::after { display: none; }
+      .intro { padding: 30px 0 55px; }
+      .crumbs { margin-bottom: 34px; }
+      .story-grid, .values-grid { grid-template-columns: 1fr; gap: 34px; }
+      .story-art { min-height: 330px; }
+      .focus-head { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .cta-panel { align-items: flex-start; flex-direction: column; }
+      .footer-main { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="header">
+    <nav class="nav wrap" aria-label="Navegación principal">
+      <a href="index.html#inicio" aria-label="KURD S.A., inicio"><img class="logo-image" src="kurd-logo.png" alt="KURD S.A."></a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="nosotros.html" aria-current="page">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+      <a class="button" href="index.html?linea=asesoramiento#presupuesto">Pedí tu presupuesto <span class="button-arrow" aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="contenido">
+    <section class="intro">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Ubicación"><a href="index.html#inicio">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Nosotros</span></nav>
+        <p class="eyebrow">Packaging con identidad</p>
+        <h1>Conocemos el material.<br><span>Entendemos tu marca.</span></h1>
+        <p class="intro-copy">Acompañamos a comercios, empresas e industrias con soluciones de packaging pensadas para lo que cada producto necesita.</p>
+      </div>
+    </section>
+    <section class="story">
+      <div class="wrap story-grid">
+        <div class="story-art">
+          <svg viewBox="0 0 360 380" role="img" aria-label="Bolsa reutilizable con una marca personalizada">
+            <path d="M75 132h210l-20 215H95z" fill="#eafed9"/>
+            <path d="M75 132h210l-5 37H79z" fill="#c6d6ad"/>
+            <path d="M132 134V99c0-36 19-57 48-57s48 21 48 57v35h-16V100c0-27-12-42-32-42s-32 15-32 42v34z" fill="none" stroke="#526d48" stroke-width="12"/>
+            <path d="M133 210h94v78h-94z" fill="#00cc00"/>
+            <path d="M151 232h58M151 243h44" stroke="#263d2b" stroke-width="4"/>
+            <text x="180" y="270" text-anchor="middle" fill="#263d2b" font-family="Arial" font-size="10" font-weight="700" letter-spacing="2">TU MARCA</text>
+          </svg>
+          <span class="story-art-label">Una idea que toma forma</span>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">Quiénes somos</p>
+          <h2>Packaging pensado desde el producto.</h2>
+          <p>Somos KURD S.A. y trabajamos con marcas que buscan presentar y proteger sus productos. Nuestro recorrido en fabricación nos permite conversar sobre materiales, formatos y usos desde una mirada práctica.</p>
+          <p>Hoy nuestro foco está en bolsas de friselina y TNT, además de laminados para alimentos. Cada consulta comienza por entender qué necesitás y cómo se va a usar el packaging.</p>
+          <p>No hace falta tener todo resuelto: una idea, una aplicación o una medida aproximada ya sirven para empezar.</p>
+        </div>
+      </div>
+    </section>
+    <section class="focus">
+      <div class="wrap">
+        <div class="focus-head">
+          <div><p class="eyebrow">Lo que hacemos</p><h2>Dos líneas.<br>Un mismo compromiso.</h2></div>
+          <p>Elegimos el punto de partida según tu producto, el uso y la presentación que estás buscando.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <span class="focus-number">01</span>
+            <h3>Friselina y TNT</h3>
+            <p>Bolsas reutilizables para comercios, empresas, eventos y marcas que quieren una presentación propia.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">02</span>
+            <h3>Laminados para alimentos</h3>
+            <p>Envases flexibles para distintas aplicaciones alimenticias. El formato se conversa según cada producto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="values">
+      <div class="wrap values-grid">
+        <div><p class="eyebrow">Cómo trabajamos</p><h2>Primero escuchamos. Después pensamos la solución.</h2></div>
+        <div class="values-copy">
+          <p>Queremos conocer el uso, la cantidad aproximada y la identidad de tu marca antes de conversar sobre alternativas.</p>
+          <p>Te ayudamos a ordenar los detalles de material, medidas y presentación para que el próximo paso sea claro.</p>
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <div class="wrap cta-panel">
+        <div><p class="eyebrow">Hablemos de tu proyecto</p><h2>Tu producto merece una presentación pensada para vos.</h2></div>
+        <a class="button" href="index.html?linea=asesoramiento#presupuesto">Preparar una consulta <span class="button-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <a href="index.html#inicio" aria-label="KURD S.A., inicio"><img class="logo-image" src="kurd-logo.png" alt="KURD S.A."></a>
+        <nav class="footer-links" aria-label="Navegación de pie"><a href="index.html#inicio">Inicio</a><a href="productos.html">Productos</a><a href="index.html#contacto">Contacto</a><a href="index.html?linea=asesoramiento#presupuesto">Presupuesto</a></nav>
+      </div>
+      <div class="footer-bottom">© <span data-year></span> KURD S.A. · Friselina · Laminados · Packaging</div>
+    </div>
+  </footer>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+      menuToggle.textContent = "☰";
+    }));
+    document.querySelector("[data-year]").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
