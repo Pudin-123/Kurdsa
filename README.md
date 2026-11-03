@@ -1,0 +1,2 @@
+# Kurdsa
+pagina de kurdsa
